@@ -1,4 +1,4 @@
-@font-face { font-family: LSTKclabolictineo; src: url('/font/LSTKclabolictineo.otf'); }
+@font-face { font-family: LSTKclabolictineo; src: url('/fonts/LSTKclabolictineo.otf'); }
 
 body {
     margin-top: 1.0em;
@@ -11,21 +11,12 @@ body {
     padding-bottom: 100px;
 }
 
-.title-strong {
-    font: 90px/140px 'LSTKclabolictineo';
-}
-
-.happy-word {
-    color: #FF9999;
-}
-
-.happy-button {
-    background-color: #FF9999;
-    color: #ffffff;
-}
-
 .titles {
     padding-top: 8em;
+}
+
+.title-strong {
+    font: 90px/140px 'LSTKclabolictineo';
 }
 
 .sub-title-strong {
@@ -36,6 +27,25 @@ body {
     margin:0 auto;
     font: 42px/70px 'LSTKclabolictineo';
     color: #777777;
+}
+
+.sub-title {
+    padding: 60px 0 90px 0;
+    width: 800px;
+    text-align: left;
+    margin:0 auto;
+    font: 15px/20px 'LSTKclabolictineo';
+    color: #000000;
+}
+
+.happy-word {
+    color: #FF9999;
+}
+
+.happy-button {
+    font: 20px/35px 'LSTKclabolictineo';
+    background-color: #FF9999;
+    color: #ffffff;
 }
 
 .login {
@@ -59,4 +69,17 @@ input.textinput {
 
 .line {
     display:inline-block;
+}
+
+.happy-post {
+    padding-top: 2em;
+}
+
+.post-button {
+    padding-top: 2em;
+}
+
+textarea {
+    width: 800px;
+    border: 1px dashed #FF9999 ;
 }

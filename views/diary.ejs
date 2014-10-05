@@ -2,44 +2,86 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body 		{ padding-top:80px; word-wrap:break-word; }
-    </style>
+    <title>Thankful</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/datepicker3.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <!--scripts-->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/bootstrap-datepicker.js"></script>
+
+
+    <script>
+        jQuery.validator.setDefaults({
+            debug: false,
+            success: "valid"
+        });
+        $( "#login" ).validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true
+                }
+            }
+        });
+        $( document ).ready(function() {
+            $('#date-selection').datepicker({
+                language: "es",
+                todayHighlight: true
+            });
+        });
+
+    </script>
 </head>
 <body>
-<div class="container">
+<div class="container ">
 
     <!-- show any messages that come back with authentication -->
     <% if (message.length > 0) { %>
-    <div class="alert"><%= message %></div>
+    <div class="alert alert-danger"><%= message %></div>
     <% } %>
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <div class="col-sm-6 ">
+        <div id="date-selection"></div>
+        <div class="titles">
+                <span class="sub-title">
+                <%= __('Pick a day to read that day') %>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div class="post_button">
+            <a href="/logout" class="btn btn-lg happy-button"><%= __('Logout') %></a>
+        </div>
     </div>
-
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                <p>
-                    <strong>id</strong>: <%= user._id %><br>
-                    <strong>email</strong>: <%= user.local.email %><br>
-                    <strong>password</strong>: <%= user.local.password %>
-                </p>
-
-            </div>
+    <div class="col-sm-6 text-center">
+        <div class="titles">
+            <span class="sub-title-strong">
+                <%= __('Write down 3 things that made you happy today') %>
+            </span>
+            <br>
+             <span class="sub-title">
+                <%= __('Remember, it does not need to be something important. Anything will do.') %>
+            </span>
         </div>
 
-    </div>
+        <div class="happy_post">
+            <form id="post" action="/post_happy_thought" method="post">
 
+                <div class='happy-post'>
+                    <textarea rows="5" placeholder=" <%= __('I fed an indigent pidgeon at lunch...') %>" required></textarea>
+                </div>
+
+                <div class="post-button">
+                    <button type="submit" class="btn btn-lg happy-button"> <%= __('Post') %></button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -1,13 +1,19 @@
 {
-    "area": "Area 51",
-    "district": "District 9 is more fun than $t(app.area)",
-    "wanna be": "Quieres ser",
-    "happier": "más feliz",
-    "Start Writing down your good thoughts here": "Empieza escribiendo tus buenas experiencias aquí",
-    "My email address is": "Mi correo es",
-    "and my Password is": "y mi clave es",
-    "Take me in": "Déjame entrar",
-    "Wrong password": "Lo sentimos. La clave no coincide.",
-    "Glad to meet you": "Que bueno que te nos hallas unido. Bienvenido.",
-    "Welcome back": "Estamos muy alegres de que hallas vuelto"
-}  
+	"area": "Area 51",
+	"district": "District 9 is more fun than $t(app.area)",
+	"wanna be": "Quieres ser",
+	"happier": "más feliz",
+	"Start Writing down your good thoughts here": "Empieza escribiendo tus buenas experiencias aquí",
+	"My email address is": "Mi correo es",
+	"and my Password is": "y mi clave es",
+	"Take me in": "Déjame entrar",
+	"Wrong password": "Lo sentimos. La clave no coincide.",
+	"Glad to meet you": "Que bueno que te nos hallas unido. Bienvenido.",
+	"Welcome back": "Estamos muy alegres de que hallas vuelto",
+	"Write down 3 things that made you happy today": "Escribe 3 cosas que te hicieron feliz el dia de hoy",
+	"Remember, it does not need to be something important. Anything will do.": "Recuerda, no es necesario que sea algo importante. Cualquier cosa esta bien.",
+	"Post": "Guardar",
+	"Pick a day to read that day": "Selecciona un dia para leerlo",
+	"I fed an indigent pidgeon at lunch...": "Alimenté a una paloma indigente al almuerzo...",
+    "Logout": "Quiero Salir"
+}
