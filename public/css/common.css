@@ -1,0 +1,62 @@
+@font-face { font-family: LSTKclabolictineo; src: url('/font/LSTKclabolictineo.otf'); }
+
+body {
+    margin-top: 1.0em;
+    background-color: #ededed;
+    background-color: #fff;
+    background-image: url('/img/header.png');
+    background-repeat: no-repeat;
+    color: #555;
+    line-height: 140%;
+    padding-bottom: 100px;
+}
+
+.title-strong {
+    font: 90px/140px 'LSTKclabolictineo';
+}
+
+.happy-word {
+    color: #FF9999;
+}
+
+.happy-button {
+    background-color: #FF9999;
+    color: #ffffff;
+}
+
+.titles {
+    padding-top: 8em;
+}
+
+.sub-title-strong {
+    padding: 60px 0 90px 0;
+    width: 800px;
+    font-size: 30px;
+    text-align: left;
+    margin:0 auto;
+    font: 42px/70px 'LSTKclabolictineo';
+    color: #777777;
+}
+
+.login {
+    font: 20px/35px 'LSTKclabolictineo';
+    padding-top: 5em;
+}
+
+.login-button {
+    padding-top: 2em;
+}
+
+input.textinput {
+    background: none;
+    border: 0;
+    border-bottom: 1px dashed #EEE;
+    width: auto;
+    font-size: 1em;
+    color: #FF9999;
+    font: inherit;
+}
+
+.line {
+    display:inline-block;
+}

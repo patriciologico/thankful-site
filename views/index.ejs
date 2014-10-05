@@ -1,0 +1,68 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Thankful</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <!--scripts-->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+
+    <script>
+        jQuery.validator.setDefaults({
+            debug: false,
+            success: "valid"
+        });
+        $( "#login" ).validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="container text-center">
+
+
+    <div class="titles">
+        <span class="title-strong">
+           <%= __('wanna be') %><span class="happy-word"> <%= __('happier') %>?</span>
+        </span>
+        <br>
+        <span class="sub-title-strong">
+            <%= __('Start Writing down your good thoughts here') %>
+        </span>
+    </div>
+
+    <div class="login">
+        <form id="login" action="/login_or_signup" method="post">
+            <p class="line">
+                <span class="copy"> <%= __('My email address is') %> </span>
+                <span class="inputcontainer">
+                    <input class="textinput" id="email" type="email" name="email" value="" placeholder="type your email here" required>
+                </span>
+                <span class="copy"> <%= __('and my Password is') %>: </span>
+                <span class="inputcontainer">
+                    <input class="textinput" id="password" type="password" name="password" value="" placeholder="type your password here" required>
+                </span>
+                <span class="copy">.</span>
+            </p>
+            <!-- show any messages that come back with authentication -->
+            <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+            <div class="login-button">
+               <button type="submit" class="btn btn-lg happy-button"> <%= __('Take me in') %></button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
