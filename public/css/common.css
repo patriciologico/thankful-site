@@ -1,5 +1,4 @@
 @font-face { font-family: LSTKclabolictineo; src: url('/fonts/LSTKclabolictineo.otf'); }
-
 body {
     margin-top: 1.0em;
     background-color: #ededed;
@@ -82,4 +81,14 @@ input.textinput {
 textarea {
     width: 800px;
     border: 1px dashed #FF9999 ;
+}
+
+
+blockquote {
+    padding-top: 2em;
+    font: 15px/20px 'LSTKclabolictineo';
+}
+
+.red {
+    color: red;
 }

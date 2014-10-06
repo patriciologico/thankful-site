@@ -10,6 +10,7 @@
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/locales/bootstrap-datepicker.es.js"></script>
 
 
     <script>
@@ -17,22 +18,17 @@
             debug: false,
             success: "valid"
         });
-        $( "#login" ).validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true
-                }
-            }
-        });
         $( document ).ready(function() {
             $('#date-selection').datepicker({
-                language: "es",
+                language: '<%= locale %>',
+                endDate: '+0d',
                 todayHighlight: true
-            });
+            }).on('changeDate', function(e){
+                var year = e.date.getFullYear();
+                var month = e.date.getMonth()+1;
+                var day = e.date.getDate();
+                document.location = '/diary?selected_date=' + year.toString()+"-"+month.toString()+"-"+day.toString();
+        });
         });
 
     </script>
@@ -60,26 +56,60 @@
     </div>
     <div class="col-sm-6 text-center">
         <div class="titles">
-            <span class="sub-title-strong">
-                <%= __('Write down 3 things that made you happy today') %>
-            </span>
-            <br>
-             <span class="sub-title">
-                <%= __('Remember, it does not need to be something important. Anything will do.') %>
-            </span>
+            <% if (enabled) {%>
+                <% if(!done) {%>
+                    <span class="sub-title-strong">
+                        <%= __('Write down 3 things that made you happy today') %>
+                    </span>
+                    <br>
+                     <span class="sub-title">
+                        <%= __('Remember, it does not need to be something important. Anything will do.') %>
+                    </span>
+                <% } else {%>
+                    <span class="sub-title-strong">
+                        <%= __('Done for today') %>
+                    </span>
+                <% }%>
+            <%} else {%>
+                    <span class="sub-title-strong">
+                        <% if (thoughts.length > 0) {%>
+                            <%= __('This are the things that made you happy that day') %>
+                        <% } else {%>
+                            <%= __('No records for that day') %>
+                        <% }%>
+                    </span>
+            <% } %>
         </div>
+        <% if (enabled) {%>
+            <% if(!done) {%>
+                <div class="happy_post">
+                    <form id="post" action="/post" method="post">
 
-        <div class="happy_post">
-            <form id="post" action="/post_happy_thought" method="post">
+                        <div class='happy-post'>
+                            <textarea rows="5" name="content" placeholder=" <%= __('I fed an indigent pidgeon at lunch...') %>" required></textarea>
+                        </div>
 
-                <div class='happy-post'>
-                    <textarea rows="5" placeholder=" <%= __('I fed an indigent pidgeon at lunch...') %>" required></textarea>
+                        <div class="post-button">
+                            <button type="submit" class="btn btn-lg happy-button"> <%= __('Post') %></button>
+                        </div>
+                    </form>
                 </div>
+            <% }%>
+        <% } %>
 
-                <div class="post-button">
-                    <button type="submit" class="btn btn-lg happy-button"> <%= __('Post') %></button>
-                </div>
-            </form>
+        <div class="thought-list">
+            <% thoughts.forEach( function ( thought ){ %>
+            <blockquote>
+                <span>
+                  <%= thought.content %>
+                </span>
+                <% if (enabled) {%>
+                    <span>
+                      <a href="/destroy/<%= thought._id %>" title="Delete this one"> <span class="glyphicon glyphicon-minus-sign red"></span></a>
+                    </span>
+                <% }%>
+            </blockquote>
+            <% }); %>
         </div>
     </div>
 </div>

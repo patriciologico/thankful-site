@@ -15,5 +15,9 @@
 	"Post": "Guardar",
 	"Pick a day to read that day": "Selecciona un dia para leerlo",
 	"I fed an indigent pidgeon at lunch...": "Alimenté a una paloma indigente al almuerzo...",
-    "Logout": "Quiero Salir"
+	"Logout": "Quiero Salir",
+	"Delete": "Eliminar",
+	"Done for today": "Estás listo por hoy día!",
+	"This are the things that made you happy that day": "Estas son las cosas que te hicieron feliz ese día",
+    "No records for that day": "No hay registros para ese día"
 }
